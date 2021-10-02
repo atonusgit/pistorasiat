@@ -28,6 +28,14 @@ if [[ $incoming_hash != $saved_hash ]]; then
 			$ROOT_DIRECTORY/$remote_control_program C off
 			;;
 
+                "don")
+                        $ROOT_DIRECTORY/$remote_control_program D on
+                        ;;
+
+                "doff")
+                        $ROOT_DIRECTORY/$remote_control_program D off
+                        ;;
+
 		"eon")
 			$ROOT_DIRECTORY/$remote_control_program E on
 			;;
