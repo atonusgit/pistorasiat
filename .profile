@@ -27,8 +27,8 @@ alias doff="python3 $ROOT_DIRECTORY/remote_control.py D off"
 alias eon="python3 $ROOT_DIRECTORY/remote_control.py E on"
 alias eoff="python3 $ROOT_DIRECTORY/remote_control.py E off"
 
-alias fon=""
-alias foff=""
+alias fon="python3 $ROOT_DIRECTORY/remote_control.py F on"
+alias foff="python3 $ROOT_DIRECTORY/remote_control.py F off"
 
 alias gon="python3 $ROOT_DIRECTORY/remote_control.py G on"
 alias goff="python3 $ROOT_DIRECTORY/remote_control.py G off"

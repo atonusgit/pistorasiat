@@ -44,6 +44,14 @@ if [[ $incoming_hash != $saved_hash ]]; then
 			$ROOT_DIRECTORY/$remote_control_program E off
 			;;
 
+                "fon")
+                        $ROOT_DIRECTORY/$remote_control_program F on
+                        ;;
+
+                "foff")
+                        $ROOT_DIRECTORY/$remote_control_program F off
+                        ;;
+
 		"gon")
 			$ROOT_DIRECTORY/$remote_control_program G on
 			;;
