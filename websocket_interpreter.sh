@@ -12,6 +12,14 @@ incoming_hash=$(md5sum <<< cat $output_file)
 if [[ $incoming_hash != $saved_hash ]]; then
 	case $(tail -1 $output_file) in
 
+                "aon")
+                        $ROOT_DIRECTORY/$remote_control_program A on
+                        ;;
+
+                "aoff")
+                        $ROOT_DIRECTORY/$remote_control_program A off
+                        ;;
+
 		"bon")
 			$ROOT_DIRECTORY/$remote_control_program B on
 			;;
