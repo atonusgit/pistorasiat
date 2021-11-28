@@ -42,7 +42,7 @@ alias gaoff="python3 $ROOT_DIRECTORY/remote_control.py GROUP_A off"
 alias gbon="python3 $ROOT_DIRECTORY/remote_control.py GROUP_B on"
 alias gboff="python3 $ROOT_DIRECTORY/remote_control.py GROUP_B off"
 
-alias wsock="cd $ROOT_DIRECTORY/status_files; nohup websocat -tvvv ws://$(cat $ROOT_DIRECTORY/status_files/kappe_ip):$WEBSOCKET_PORT writefile:$ROOT_DIRECTORY/status_files/websocket_output --ping-interval 60 & >/dev/null 2>> $ROOT_DIRECTORY/wsock_error.log"
+alias wsock="cd $ROOT_DIRECTORY/status_files; nohup websocat -tvvv autoreconnect:ws://$(cat $ROOT_DIRECTORY/status_files/kappe_ip):$WEBSOCKET_PORT writefile:$ROOT_DIRECTORY/status_files/websocket_output --ping-interval 60 & >> $ROOT_DIRECTORY/wsock_stout.log 2>> $ROOT_DIRECTORY/wsock_error.log"
 alias wsockint="cd $ROOT_DIRECTORY/status_files; nohup bash $ROOT_DIRECTORY/websocket_interpreter.sh & >/dev/null"
 
 cd $ROOT_DIRECTORY
