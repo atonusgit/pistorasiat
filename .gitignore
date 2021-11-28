@@ -4,3 +4,4 @@ deprecated
 development
 status_files
 wsock_error.log
+wsock_stout.log
