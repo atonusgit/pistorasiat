@@ -91,6 +91,12 @@ if [[ $incoming_hash != $saved_hash ]]; then
 		"gboff")
 			$ROOT_DIRECTORY/$remote_control_program GROUP_B off
 			;;
+
+		honoff*)
+			$ROOT_DIRECTORY/$remote_control_program H on
+			sleep $(tail -1 $output_file | cut -d' ' -f2)
+			$ROOT_DIRECTORY/$remote_control_program H off
+			;;
 	esac
 
 	saved_hash=$incoming_hash
