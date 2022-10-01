@@ -97,6 +97,10 @@ if [[ $incoming_hash != $saved_hash ]]; then
 			sleep $(tail -1 $output_file | cut -d' ' -f2)
 			$ROOT_DIRECTORY/$remote_control_program H off
 			;;
+
+		"acctv")
+			ssh $KOSTEUS_USERNAME@$KOSTEUS_ADDRESS 'bash '$KOSTEUS_ROOT_DIRECTORY'/get_image.sh'
+
 	esac
 
 	saved_hash=$incoming_hash
