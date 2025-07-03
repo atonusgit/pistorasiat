@@ -36,6 +36,12 @@ alias goff="python3 $ROOT_DIRECTORY/remote_control.py G off"
 alias hon="python3 $ROOT_DIRECTORY/remote_control.py H on"
 alias hoff="python3 $ROOT_DIRECTORY/remote_control.py H off"
 
+alias ion="python3 $ROOT_DIRECTORY/remote_control.py I on"
+alias ioff="python3 $ROOT_DIRECTORY/remote_control.py I off"
+
+alias jon="python3 $ROOT_DIRECTORY/remote_control.py J on"
+alias joff="python3 $ROOT_DIRECTORY/remote_control.py J off"
+
 alias gaon="python3 $ROOT_DIRECTORY/remote_control.py GROUP_A on"
 alias gaoff="python3 $ROOT_DIRECTORY/remote_control.py GROUP_A off"
 
@@ -49,6 +55,16 @@ honoff () {
         python3 $ROOT_DIRECTORY/remote_control.py H on
         sleep $1
         python3 $ROOT_DIRECTORY/remote_control.py H off
+}
+
+pumpon () {
+	ip=$(ping -c 1 $PUMPPU_SHELLY_HOSTNAME | head -1 | awk -F'[()]' '{print $2}')
+	curl --anyauth -u $PUMPPU_SHELLY_USERNAME:$PUMPPU_SHELLY_PASSWORD "http://$ip/rpc/Switch.Set?id=0&on=true"
+}
+
+pumpoff () {
+        ip=$(ping -c 1 $PUMPPU_SHELLY_HOSTNAME | head -1 | awk -F'[()]' '{print $2}')
+        curl --anyauth -u $PUMPPU_SHELLY_USERNAME:$PUMPPU_SHELLY_PASSWORD "http://$ip/rpc/Switch.Set?id=0&on=false"
 }
 
 cd $ROOT_DIRECTORY

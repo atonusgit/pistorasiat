@@ -76,15 +76,12 @@ def remote_control(i):
 		"G" : "56637",
 		"H" : "57637",
                 "I" : "57638", # Peuravalo
+                "J" : "67639", # Wifi-pistoke
 		"GROUP_A": "58001",
 		"GROUP_B": "58002",
 	}
-
-	if i in ("J"):
-		print('')
-	else:
-		switch(channels.get(i))
-
+	
+	switch(channels.get(i))
 	update_status_file()
 	interpret_group_status()
 	os.system("rsync " + status_file + " " + sensorit_user + "@" + str(sensorit_address) + ":" + sensorit_root + "/status_files/")
