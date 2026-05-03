@@ -12,6 +12,9 @@ status_file = os.getenv('ROOT_DIRECTORY') + "/status_files/all_status.json"
 sensorit_address = os.getenv('SENSORIT_ADDRESS')
 sensorit_root = os.getenv('SENSORIT_ROOT_DIRECTORY')
 sensorit_user = os.getenv('SENSORIT_USERNAME')
+shelly_username = os.getenv('PUMPPU_SHELLY_USERNAME')
+shelly_password = os.getenv('PUMPPU_SHELLY_PASSWORD')
+shelly_hostname = os.getenv('PUMPPU_SHELLY_HOSTNAME')
 
 def write_json(data, status_file='data.json'):
 	with open(status_file, 'w', encoding='utf-8') as f:
@@ -81,7 +84,12 @@ def remote_control(i):
 	}
 
 	if i in ("J"):
-		print('')
+		shelly_status = "false"
+		if sys.argv[2] == "on":
+			shelly_status = "true"
+
+		os.system("curl --anyauth -u " + shelly_username + ":" + shelly_password + " 'http://" + shelly_hostname + "/rpc/Switch.Set?id=0&on=" + shelly_status + "'")
+		print(sys.argv)
 	else:
 		switch(channels.get(i))
 
